@@ -10,10 +10,13 @@ create table if not exists trailheads (
   created_at  timestamptz default now()
 );
 
--- Enable Row Level Security
 alter table trailheads enable row level security;
 
--- Allow anonymous read/write (public app — tighten with auth later)
+drop policy if exists "Public read"   on trailheads;
+drop policy if exists "Public insert" on trailheads;
+drop policy if exists "Public update" on trailheads;
+drop policy if exists "Public delete" on trailheads;
+
 create policy "Public read"   on trailheads for select using (true);
 create policy "Public insert" on trailheads for insert with check (true);
 create policy "Public update" on trailheads for update using (true) with check (true);
@@ -28,6 +31,10 @@ create table if not exists pin_photos (
 );
 
 alter table pin_photos enable row level security;
+
+drop policy if exists "Public read"   on pin_photos;
+drop policy if exists "Public insert" on pin_photos;
+drop policy if exists "Public delete" on pin_photos;
 
 create policy "Public read"   on pin_photos for select using (true);
 create policy "Public insert" on pin_photos for insert with check (true);
