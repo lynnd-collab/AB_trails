@@ -3,19 +3,19 @@
   <!-- Forest green background -->
   <rect width="512" height="512" fill="#1b4332"/>
 
+  <!-- Mountain silhouette behind tree -->
+  <path d="M60 375 L256 125 L452 375 Z" fill="#2d6a4f"/>
+
   <!-- Pine tree — 3 tiers, centered -->
   <path d="M256 68 L298 182 L214 182 Z" fill="#74c69d"/>
   <path d="M256 145 L312 272 L200 272 Z" fill="#74c69d"/>
   <path d="M256 222 L334 368 L178 368 Z" fill="#74c69d"/>
-  <!-- Subtle shadow side on each tier for depth -->
-  <path d="M256 68 L298 182 L256 182 Z"  fill="#52b788" opacity="0.5"/>
+  <!-- Shadow side for depth -->
+  <path d="M256 68  L298 182 L256 182 Z" fill="#52b788" opacity="0.5"/>
   <path d="M256 145 L312 272 L256 272 Z" fill="#52b788" opacity="0.5"/>
   <path d="M256 222 L334 368 L256 368 Z" fill="#52b788" opacity="0.5"/>
   <!-- Trunk -->
   <rect x="240" y="365" width="32" height="52" rx="5" fill="#40916c"/>
-
-  <!-- Bird — simple distant silhouette, two curved wings -->
-  <path d="M305 162 Q338 118 370 140 Q402 118 435 162 L404 150 L370 156 L336 150 Z" fill="#e8604a"/>
 
   <!-- Dotted trail across the lower foreground -->
   <path d="M42 448 Q180 428 256 438 Q332 448 470 430"
