@@ -27,9 +27,8 @@ export default function Map({ pins, photoSet, onMapClick, onDeletePin, onEditPin
 
   useEffect(() => {
     photoSetRef.current = photoSet;
-    const show = (mapRef.current?.getZoom() ?? 0) >= 10;
     Object.entries(cameraElsRef.current).forEach(([id, el]) => {
-      el.style.display = (show && photoSet.has(id)) ? 'block' : 'none';
+      el.style.display = photoSet.has(id) ? 'block' : 'none';
     });
   }, [photoSet]);
 
@@ -56,13 +55,6 @@ export default function Map({ pins, photoSet, onMapClick, onDeletePin, onEditPin
     map.on('click', (e) => {
       if (e.originalEvent.target.closest('.pin-marker')) return;
       onMapClickRef.current(e.lngLat.lng, e.lngLat.lat);
-    });
-
-    map.on('zoom', () => {
-      const show = map.getZoom() >= 10;
-      Object.entries(cameraElsRef.current).forEach(([id, el]) => {
-        el.style.display = (show && photoSetRef.current.has(id)) ? 'block' : 'none';
-      });
     });
 
     mapRef.current = map;
@@ -110,8 +102,7 @@ export default function Map({ pins, photoSet, onMapClick, onDeletePin, onEditPin
       cameraBadge.className = 'pin-photo-badge';
       cameraBadge.textContent = '📷';
       cameraBadge.setAttribute('aria-hidden', 'true');
-      const atZoom10 = (mapRef.current?.getZoom() ?? 0) >= 10;
-      cameraBadge.style.display = (atZoom10 && photoSetRef.current.has(pin.id)) ? 'block' : 'none';
+      cameraBadge.style.display = photoSetRef.current.has(pin.id) ? 'block' : 'none';
       el.appendChild(cameraBadge);
       cameraElsRef.current[pin.id] = cameraBadge;
 

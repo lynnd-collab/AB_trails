@@ -233,6 +233,7 @@ html, body, #root {
   cursor: pointer;
   display: block;
   line-height: 1;
+  position: relative;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
   transition: transform 0.15s;
   transform: translate(-50%, -100%);
@@ -670,11 +671,12 @@ html, body, #root {
 /* ── Pin photo badge ── */
 .pin-photo-badge {
   position: absolute;
-  top: -6px;
-  right: -8px;
-  font-size: 12px;
+  top: -4px;
+  right: -10px;
+  font-size: 11px;
   line-height: 1;
   pointer-events: none;
+  display: none;
 }
 
 /* ── Responsive ── */
