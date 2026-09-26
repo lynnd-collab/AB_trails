@@ -9,7 +9,7 @@ export default function SearchBar({ pins = [], onSelectPin }) {
   const pinResults = q.length > 0
     ? pins.filter((p) =>
         (p.note && p.note.toLowerCase().includes(q)) ||
-        (p.trail_name && p.trail_name.toLowerCase().includes(q))
+        (p.river_name && p.river_name.toLowerCase().includes(q))
       )
     : [];
 
@@ -44,8 +44,8 @@ export default function SearchBar({ pins = [], onSelectPin }) {
               onMouseDown={() => handleSelectPin(p)}
             >
               <span className="search-result-pin-note">📍 {p.note || 'Trailhead'}</span>
-              {p.trail_name && (
-                <span className="search-result-pin-trail">{p.trail_name}</span>
+              {p.river_name && (
+                <span className="search-result-pin-trail">{p.river_name}</span>
               )}
             </li>
           ))}

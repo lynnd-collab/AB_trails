@@ -30,7 +30,7 @@ export default function App() {
 
   async function fetchPins() {
     const { data, error } = await supabase
-      .from('trailheads')
+      .from('access_points')
       .select('*')
       .order('created_at', { ascending: false });
 
@@ -49,8 +49,8 @@ export default function App() {
 
   async function handleSavePin(note, trailName) {
     const { data, error } = await supabase
-      .from('trailheads')
-      .insert([{ longitude: pendingPin.lng, latitude: pendingPin.lat, note, trail_name: trailName }])
+      .from('access_points')
+      .insert([{ longitude: pendingPin.lng, latitude: pendingPin.lat, note, river_name: trailName }])
       .select()
       .single();
 
@@ -65,8 +65,8 @@ export default function App() {
 
   async function handleUpdatePin(note, trailName) {
     const { data, error } = await supabase
-      .from('trailheads')
-      .update({ note, trail_name: trailName })
+      .from('access_points')
+      .update({ note, river_name: trailName })
       .eq('id', editingPin.id)
       .select()
       .single();
@@ -81,7 +81,7 @@ export default function App() {
   }
 
   async function handleDeletePin(id) {
-    const { error } = await supabase.from('trailheads').delete().eq('id', id);
+    const { error } = await supabase.from('access_points').delete().eq('id', id);
     if (error) {
       console.error('Delete error:', error);
     } else {
@@ -161,7 +161,7 @@ export default function App() {
       {editingPin && (
         <PinModal
           initialNote={editingPin.note || ''}
-          initialTrailName={editingPin.trail_name || ''}
+          initialTrailName={editingPin.river_name || ''}
           isEditing
           onSave={handleUpdatePin}
           onCancel={() => setEditingPin(null)}

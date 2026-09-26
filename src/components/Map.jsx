@@ -93,7 +93,7 @@ export default function Map({ pins, photoSet, onMapClick, onDeletePin, onEditPin
       const existing = markersRef.current[pin.id];
       if (existing) {
         const el = existing.getElement();
-        if (el.dataset.note === (pin.note || '') && el.dataset.trail === (pin.trail_name || '')) return;
+        if (el.dataset.note === (pin.note || '') && el.dataset.trail === (pin.river_name || '')) return;
         existing.remove();
         delete markersRef.current[pin.id];
         delete cameraElsRef.current[pin.id];
@@ -104,7 +104,7 @@ export default function Map({ pins, photoSet, onMapClick, onDeletePin, onEditPin
       el.setAttribute('aria-label', pin.note || 'Trailhead');
       el.textContent = '📍';
       el.dataset.note = pin.note || '';
-      el.dataset.trail = pin.trail_name || '';
+      el.dataset.trail = pin.river_name || '';
 
       const cameraBadge = document.createElement('div');
       cameraBadge.className = 'pin-photo-badge';
@@ -125,7 +125,7 @@ export default function Map({ pins, photoSet, onMapClick, onDeletePin, onEditPin
         .setHTML(
           `<div class="pin-popup">
             <p class="pin-popup-note">${pin.note || 'Trailhead'}</p>
-            ${pin.trail_name ? `<p class="pin-popup-trail">🥾 ${pin.trail_name}</p>` : ''}
+            ${pin.river_name ? `<p class="pin-popup-trail">🥾 ${pin.river_name}</p>` : ''}
             <p class="pin-popup-date">${dateStr}</p>
             <a class="pin-popup-directions" href="${mapsUrl}" target="_blank" rel="noopener noreferrer">Get Directions</a>
             <button class="pin-popup-photos">📷 Photos</button>

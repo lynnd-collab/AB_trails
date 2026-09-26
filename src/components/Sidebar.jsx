@@ -25,8 +25,8 @@ export default function Sidebar({ open, pins, onSelectPin, onDeletePin }) {
 
               <div className="pin-card-content">
                 <div className="pin-card-note">{pin.note || 'Trailhead'}</div>
-                {pin.trail_name && (
-                  <div className="pin-card-trail">🥾 {pin.trail_name}</div>
+                {pin.river_name && (
+                  <div className="pin-card-trail">🥾 {pin.river_name}</div>
                 )}
                 <div className="pin-card-date">
                   {new Date(pin.created_at).toLocaleDateString('en-CA', {
