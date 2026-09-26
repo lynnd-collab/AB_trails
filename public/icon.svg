@@ -1,32 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1a5c99"/>
-      <stop offset="100%" stop-color="#5ba3d9"/>
-    </linearGradient>
-    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#52b788"/>
-      <stop offset="100%" stop-color="#1b4332"/>
-    </linearGradient>
-  </defs>
 
-  <!-- Sky -->
-  <rect width="512" height="512" fill="url(#sky)"/>
+  <!-- Forest green background -->
+  <rect width="512" height="512" fill="#1b4332"/>
 
-  <!-- Ground -->
-  <path d="M0 355 Q128 338 256 348 Q384 358 512 342 L512 512 L0 512 Z" fill="url(#ground)"/>
+  <!-- Pine tree — 3 tiers, centered -->
+  <path d="M256 68 L298 182 L214 182 Z" fill="#74c69d"/>
+  <path d="M256 145 L312 272 L200 272 Z" fill="#74c69d"/>
+  <path d="M256 222 L334 368 L178 368 Z" fill="#74c69d"/>
+  <!-- Subtle shadow side on each tier for depth -->
+  <path d="M256 68 L298 182 L256 182 Z"  fill="#52b788" opacity="0.5"/>
+  <path d="M256 145 L312 272 L256 272 Z" fill="#52b788" opacity="0.5"/>
+  <path d="M256 222 L334 368 L256 368 Z" fill="#52b788" opacity="0.5"/>
+  <!-- Trunk -->
+  <rect x="240" y="365" width="32" height="52" rx="5" fill="#40916c"/>
 
-  <!-- Mountain silhouette -->
-  <path d="M80 372 L256 82 L432 372 Z" fill="#1b4332"/>
+  <!-- Bird — simple perched silhouette, coral/red, upper right -->
+  <!-- Body -->
+  <ellipse cx="394" cy="156" rx="46" ry="22" fill="#e8604a" transform="rotate(-8 394 156)"/>
+  <!-- Head -->
+  <circle cx="432" cy="138" r="24" fill="#e8604a"/>
+  <!-- Beak -->
+  <path d="M454 135 L476 129 L454 148 Z" fill="#c0432a"/>
+  <!-- Tail -->
+  <path d="M350 163 L318 147 L322 167 L318 183 L352 176 Z" fill="#e8604a"/>
+  <!-- Belly -->
+  <ellipse cx="400" cy="163" rx="26" ry="13" fill="#f2856e" opacity="0.6"/>
+  <!-- Eye -->
+  <circle cx="436" cy="134" r="6"   fill="white"/>
+  <circle cx="437" cy="134" r="3.5" fill="#1a0800"/>
+  <circle cx="438" cy="133" r="1.2" fill="white"/>
 
-  <!-- Sunlit face of mountain (subtle depth) -->
-  <path d="M256 82 L316 228 L256 248 L196 228 Z" fill="#2d6a4f" opacity="0.45"/>
-
-  <!-- Snow cap -->
-  <path d="M256 82 L300 164 L256 153 L212 164 Z" fill="white" opacity="0.96"/>
-
-  <!-- Dotted trail across foreground -->
-  <path d="M38 452 Q160 422 256 434 Q352 446 474 418"
+  <!-- Dotted trail across the lower foreground -->
+  <path d="M42 448 Q180 428 256 438 Q332 448 470 430"
         fill="none" stroke="white" stroke-width="20"
-        stroke-dasharray="34,26" stroke-linecap="round" opacity="0.95"/>
+        stroke-dasharray="34,26" stroke-linecap="round" opacity="0.92"/>
+
 </svg>
