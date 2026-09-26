@@ -3,9 +3,6 @@
   <!-- Forest green background -->
   <rect width="512" height="512" fill="#1b4332"/>
 
-  <!-- Mountain silhouette behind tree -->
-  <path d="M60 375 L256 125 L452 375 Z" fill="#2d6a4f"/>
-
   <!-- Pine tree — 3 tiers, centered -->
   <path d="M256 68 L298 182 L214 182 Z" fill="#74c69d"/>
   <path d="M256 145 L312 272 L200 272 Z" fill="#74c69d"/>
